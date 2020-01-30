@@ -41,7 +41,4 @@ sudo service mysql restart
 
 # Clean Up Box
 sudo rm /var/www/*.log
-# sudo apt-get clean -y
-# sudo dd if=/dev/zero of=/EMPTY bs=1M
-# sudo rm -f /EMPTY
-# sudo cat /dev/null > ~/.bash_history && history -c && exit
+sudo apt-get clean -y
