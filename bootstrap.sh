@@ -32,6 +32,7 @@ sudo service apache2 restart
 sudo service mysql restart
 
 # Clean Up Box
+sudo rm /var/www/*.log
 # sudo apt-get clean -y
 # sudo dd if=/dev/zero of=/EMPTY bs=1M
 # sudo rm -f /EMPTY
