@@ -11,6 +11,14 @@ sudo a2enmod php7.2
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 
+# Enable Apache Mod_Rewrite 
+sudo bash -c 'echo "<Directory /var/www/html>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+</Directory>" >> /etc/apache2/sites-available/000-default.conf'
+sudo service apache2 restart
+
 # MySql
 sudo apt install mysql-server -y
 sudo mysql --execute="ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'root';"
