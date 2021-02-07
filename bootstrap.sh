@@ -1,13 +1,20 @@
 # Update & Upgrade
 sudo apt-get update -y
-sudo apt-get upgrade -y
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update -y
 
 # Apache
 sudo apt-get install apache2 -y
 
-# PHP (7.2)
-sudo apt-get install php7.2 php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-mysql php7.2-mbstring php7.2-zip php7.2-fpm php7.2-curl php7.2-xml php7.2-gd php7.2-zip libapache2-mod-php7.2 -y
-sudo a2enmod php7.2
+# Git & Curl
+sudo apt install git -y 
+sudo apt install curl -y 
+
+# PHP 7.4
+sudo apt install php7.4 -y
+sudo apt install php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl -y
+sudo a2enmod proxy_fcgi setenvif
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 
@@ -22,6 +29,7 @@ sudo service apache2 restart
 # MySql
 sudo apt install mysql-server -y
 sudo mysql --execute="ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'root';"
+sudo mysql --execute="GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost';"
 sudo service mysql restart
 
 # Composer
@@ -31,9 +39,8 @@ curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/loca
 sudo apt-get install nodejs -y
 sudo apt-get install npm -y
 
-# Git & Curl
-sudo apt install git
-sudo apt install curl
+# phpMyAdmin
+# sudo apt install phpmyadmin php-gettext -y --assume-yes
 
 # Restart Services
 sudo service apache2 restart
@@ -42,3 +49,6 @@ sudo service mysql restart
 # Clean Up Box
 sudo rm /var/www/*.log
 sudo apt-get clean -y
+
+## Set up xdebug 
+# https://medium.com/@mohsinyounas05/how-to-enable-xdebug-for-laravel-with-vagrant-and-phpstorm-df5403c9e793
