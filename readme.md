@@ -29,3 +29,11 @@ xdebug.log = /var/log/xdebug.log
 ``` 
 
 Then run `sudo systemctl restart apache2`
+
+## Set up phpMyAdmin
+Run the following:
+- sudo apt install phpmyadmin php-gettext -y --assume-yes
+- Set username to root@localhost & password to root
+- Afterwords edit this file: `sudo nano /etc/apache2/apache2.conf`
+- Add this to the bottom of the file: `Include /etc/phpmyadmin/apache.conf`
+- Then run `sudo systemctl restart apache2`
