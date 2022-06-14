@@ -2,12 +2,13 @@
 A simple LAMP stack for PHP development. 
 
 ## Features
- PHP 7.4
- Xdebug
- MYSQL
- Node.js
- NPM
- Composer
+- PHP 7.4
+- Xdebug
+- MYSQL
+- Node.js
+- NPM
+- Composer
+- phpMyAdmin
 
 
 ## Prerequisites:
